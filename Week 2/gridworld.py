@@ -21,7 +21,7 @@ class GridWorld:
   def __init__(self, n=4):
     self.n = n
     self.action_space = np.arange(4)
-    self.terminal_states = [0, (n ** 2) - 1]
+    self.terminal_states = [0]
     
     grid = -1 * np.ones((4, 4))
     grid[0, 0] = 0
