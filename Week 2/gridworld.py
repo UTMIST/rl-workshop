@@ -37,7 +37,7 @@ class GridWorld:
       | 3 | 4 | 5 |
       | 6 | 7 | 8 |
     """
-    return loc[0] * self.n + loc[1]
+    return int(loc[0] * self.n + loc[1])
     
   def loc(self, state):
     """
