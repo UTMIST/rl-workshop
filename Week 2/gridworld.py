@@ -49,10 +49,10 @@ class GridWorld:
   def _action_prob(self, a):
     """
     Returns a dictionary of the action probabilities. 
-    There is a 0.7 chance the agent will take the action and a 0.3 chance of taking a random action.
+    There is a 0.85 chance the agent will take the action and a 0.15 chance of taking a random action.
     """
-    action_prob = {i: 0.1 for i in self.action_space}
-    action_prob[a] = 0.7
+    action_prob = {i: 0.05 for i in self.action_space}
+    action_prob[a] = 0.85
     return action_prob
 
   def _is_inbounds(self, row, col):
@@ -76,7 +76,7 @@ class GridWorld:
       next_row, next_col = row + ACTIONS[next_action][0], col + ACTIONS[next_action][1]
       if not self._is_inbounds(next_row, next_col):
         next_row, next_col = row, col
-      next_state = self.state((next_row, next_col))
+      next_state = int(self.state((next_row, next_col)))
       reward = self.reward_grid[next_row, next_col]
       probability = action_prob[next_action]
 
