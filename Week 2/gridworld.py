@@ -78,7 +78,7 @@ class GridWorld:
         next_row, next_col = row, col
       next_state = int(self.state((next_row, next_col)))
       reward = self.reward_grid[next_row, next_col]
-      probability = action_prob[next_action]
+      probability = np.round(action_prob[next_action], 2)
 
       if next_state in self.terminal_states:
         reward = 0
