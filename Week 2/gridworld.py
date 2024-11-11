@@ -78,7 +78,7 @@ class GridWorld:
         next_row, next_col = row, col
       next_state = int(self.state((next_row, next_col)))
       reward = self.reward_grid[next_row, next_col]
-      probability = np.round(action_prob[next_action], 2)
+      probability = action_prob[next_action]
 
       if next_state in self.terminal_states:
         reward = 0
@@ -87,7 +87,7 @@ class GridWorld:
         transitions[(next_state, reward)] += probability
       else:
         transitions[(next_state, reward)] = probability
-    return np.array([[*s, np.round(transitions[s], 1)] for s in transitions])
+    return np.array([[*s, np.round(transitions[s], 2)] for s in transitions])
 
   def render(self):
     print(self.reward_grid)
